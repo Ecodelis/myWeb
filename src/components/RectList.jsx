@@ -36,9 +36,12 @@ const RectList = ({ headerTitle, button, content, displayComponentType }) => {
         ))}
       </div>
       
-      <button onClick={toggleShowAll} className="text-white bg-[#373D4C] hover:bg-[#2c3342] px-4 py-2 w-60 font-regular">
-        {showAll ? `SHOW LESS` : `VIEW ALL ${button.toUpperCase()}`}
-      </button>
+      {/* If the condition before the && operator is true, the JSX element after the && operator will be rendered. */}
+      {content.length > 3 && (
+        <button onClick={toggleShowAll} className="text-white bg-[#373D4C] hover:bg-[#2c3342] px-4 py-2 w-60 font-regular">
+          {showAll ? `SHOW LESS` : `VIEW ALL ${button.toUpperCase()}`}
+        </button>
+      )}
     </div>
   );
 };
