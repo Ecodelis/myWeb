@@ -22,9 +22,9 @@ const ExperienceDisplay = ({ type, title, description, responsibilities, startDa
       </div>
 
       {/* Bottom section: Gray area */}
-      <div className="bg-[#373D4D] pl-5 pr-5 pb-4 pt-2 text-white text-[0.7rem] flex flex-col">
-        <div className="mb-10" dangerouslySetInnerHTML={{ __html: responsibilities }}></div>
-        <div className="flex justify-between">
+      <div className="bg-[#373D4D] pl-5 pr-5 pb-4 pt-2 text-white flex flex-col">
+        <div className="mb-10 text-[1rem]" dangerouslySetInnerHTML={{ __html: responsibilities }}></div>
+        <div className="flex justify-between text-[0.7rem]">
           <span>{startDate} - {endDate}</span>
           <span>{numPeople}</span>
         </div>
