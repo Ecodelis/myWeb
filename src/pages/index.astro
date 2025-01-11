@@ -1,10 +1,18 @@
 ---
-import '@fontsource/inter'; // Import the Inter font
-import Welcome from '../components/Welcome.astro';
+import '../../styles/global.css'; // Import the global CSS file
 import Layout from '../layouts/Layout.astro';
 import Profile from '../components/Profile.astro';
 import FeaturedCarousel from '../components/FeaturedCarousel.astro';
 import RectList from '../components/RectList.jsx';
+import ActivitiesDisplay from '../components/ActivitiesDisplay.jsx';
+import ExperienceDisplay from '../components/ExperienceDisplay.jsx';
+import fs from 'fs';
+import path from 'path';
+
+const profileInfo = {
+  title: 'Welcome!',
+  description: 'This is a brief description about me and my website. Feel free to explore and learn more about my work and projects.'
+};
 
 const recentProjects = [
   { type: 'PROJECT', title: 'CAR PROJ', description: 'Description of Project 1', startDate: 'Jan 2021', endDate: 'Dec 2021', numPeople: '5 People' },
@@ -21,17 +29,27 @@ const recentCompetitions = [
   { type: 'COMPETITION', title: 'COMP 4', description: 'Description of Competition 4', startDate: 'Apr 2021', endDate: 'Dec 2021', numPeople: '4 People' },
   { type: 'COMPETITION', title: 'COMP 5', description: 'Description of Competition 5', startDate: 'May 2021', endDate: 'Dec 2021', numPeople: '2 People' },
 ];
+
+// Read the HTML content from the file
+const responsibilitiesHTML = fs.readFileSync(path.resolve('words/responsibilities.html'), 'utf-8');
+
+const recentExperience = [
+  { type: 'COMPETITION', title: 'COMP 1', description: 'Description of Competition 1', responsibilities: responsibilitiesHTML, startDate: 'Jan 2021', endDate: 'Dec 2021' },
+];
 ---
 
 <Layout>
     <div slot="section1">
-        <Profile />
+        <Profile profile={profileInfo} />
         <FeaturedCarousel />
     </div>
     <div slot="section2">
-        <RectList client:load headerTitle="Recent Projects" projects={recentProjects} />
+        <RectList headerTitle="Recent Projects" content={recentProjects} DisplayComponent={ActivitiesDisplay} />
     </div>
     <div slot="section3">
-        <RectList client:load headerTitle="Recent Competitions" projects={recentCompetitions} />
+        <RectList headerTitle="Recent Competitions" content={recentCompetitions} DisplayComponent={ActivitiesDisplay} />
+    </div>
+    <div slot="section4">
+        <RectList headerTitle="Experience" content={recentExperience} DisplayComponent={ExperienceDisplay} />
     </div>
 </Layout>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const RectDisplay = ({ type, title, description, startDate, endDate, numPeople }) => {
+const ActivitiesDisplay = ({ type, title, description, startDate, endDate, numPeople }) => {
   return (
     <div className="w-full flex mb-4 bg-[#373D4D]">
       {/* Left side: Picture */}
@@ -11,14 +11,14 @@ const RectDisplay = ({ type, title, description, startDate, endDate, numPeople }
       </div>
 
       {/* Right side: Content */}
-      <div className="flex-grow flex flex-col justify-between pb-4 text-white">
+      <div className="flex-grow flex flex-col justify-between pb-4 text-white font-light">
         <h2 className="pl-5 pt-1 pb-1 text-[1rem] bg-[#1B1F27]">{type}</h2>
         <div className="flex-grow">
           <h2 className="pl-5 m-0 text-[1.8rem]">{title}</h2>
           <p className="pl-5">{description}</p>
         </div>
         {/* Bottom left and right corner text */}
-        <div className="pl-5 pr-4 flex justify-between text-[0.7rem]">
+        <div className="pl-5 pr-5 flex justify-between text-[0.7rem]">
           <span>{startDate} - {endDate}</span>
           <span>{numPeople}</span>
         </div>
@@ -27,4 +27,4 @@ const RectDisplay = ({ type, title, description, startDate, endDate, numPeople }
   );
 };
 
-export default RectDisplay;
+export default ActivitiesDisplay;
