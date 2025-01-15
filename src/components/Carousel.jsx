@@ -34,6 +34,14 @@ const Carousel = ({ images }) => {
       </div>
       <button className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full" onClick={goToPrevious}>❮</button>
       <button className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full" onClick={goToNext}>❯</button>
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+        {validImages.map((_, index) => (
+          <div
+            key={index}
+            className={`w-3 h-3 rounded-full ${index === currentIndex ? 'bg-white' : 'bg-gray-400'}`}
+          ></div>
+        ))}
+      </div>
     </div>
   );
 };
