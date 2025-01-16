@@ -1,9 +1,0 @@
-/* global.css */
-
-/* Import the Inter font from Google Fonts with the required weights */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
-/* Apply the font to the body element */
-body {
-  font-family: 'Inter', sans-serif;
-}
