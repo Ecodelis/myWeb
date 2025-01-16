@@ -1,13 +1,18 @@
 ---
 import '../../styles/global.css'; // Import the global CSS file
 import '../../styles/tailwind.css';
+
+import fs from 'fs';
+import path from 'path';
+
+// Component Imports
 import Layout from '../layouts/Layout.astro';
 import Profile from '../components/Profile.astro';
 import FeaturedCarousel from '../components/FeaturedCarousel.astro';
+import About from '../components/About.astro'
 import RectList from '../components/RectList.jsx';
 import Carousel from '../components/Carousel.jsx';
-import fs from 'fs';
-import path from 'path';
+
 
 const profileInfo = {
   title: 'Welcome!',
@@ -60,6 +65,7 @@ const images = [
         <RectList client:load headerTitle="Experience" button="EXPERIENCE" content={recentExperience} displayComponentType={2} />
     </div>
     <div slot="section5">
+        <About />
         <Carousel client:load images={images} />
     </div>
 </Layout>

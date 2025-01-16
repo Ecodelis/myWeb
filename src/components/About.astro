@@ -1,16 +1,15 @@
 ---
-const pdfUrl = '/path/to/your/pdf-file.pdf';
+// Import statement
+import {Content as PromoBanner} from '../../words/cmstest.md';
+
+// Collections query
+import { getEntry, render } from 'astro:content';
+
+const product = await getEntry('products', 'shirt');
+const { Content } = await render(product);
 ---
+<h2>Today's promo</h2>
+<PromoBanner />
 
-
-
-
-
-<div class="w-full h-screen overflow-auto">
-  <iframe
-    src={pdfUrl}
-    class="w-full h-full"
-    frameborder="0"
-    title="PDF Viewer"
-  ></iframe>
-</div>
+<p>Sale Ends: {product.data.saleEndDate.toDateString()}</p>
+<Content />
