@@ -12,13 +12,13 @@ const ActivitiesDisplay = ({ type, title, description, startDate, endDate, numPe
 
       {/* Right side: Content */}
       <div className="flex-grow flex flex-col justify-between pb-4 text-white font-light">
-        <h2 className="pl-5 pt-1 pb-1 text-[1rem] bg-[#1B1F27]">{type}</h2>
+        <h2 className="subtitle pl-5 pt-1 pb-1 bg-[#1B1F27]">{type}</h2>
         <div className="flex-grow">
-          <h2 className="pl-5 m-0 text-[1.8rem]">{title}</h2>
-          <p className="pl-5">{description}</p>
+          <h2 className="heading pl-5 m-0">{title}</h2>
+          <p className="description pl-5">{description}</p>
         </div>
         {/* Bottom left and right corner text */}
-        <div className="pl-5 pr-5 flex justify-between text-[0.7rem]">
+        <div className="tiny pl-5 pr-5 flex justify-between">
           <span>{startDate} - {endDate}</span>
           <span>{numPeople}</span>
         </div>

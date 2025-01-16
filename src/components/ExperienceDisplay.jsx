@@ -6,25 +6,24 @@ const ExperienceDisplay = ({ type, title, description, responsibilities, startDa
       {/* Top section: Picture and Content */}
       <div className="flex">
         {/* Left side: Picture */}
-        <div className="flex-shrink-0 w-[7%]">
-          <div className="relative w-full" style={{ paddingTop: '100%' }}> {/* 1:1 Aspect Ratio */}
-            <div className="absolute top-0 left-0 w-full h-full bg-black"></div>
+        <div className="w-[83.2px] bg-black"></div>
+
+        {/* Right side: Content */}
+        <div className="flex flex-col justify-between pl-4">
+          <div>
+            <h2 className="heading">{title}</h2>
+            <p className="description">{description}</p>
           </div>
         </div>
 
-        {/* Right side: Content */}
-        <div className="flex-grow flex flex-col justify-between pl-4 text-white font-light">
-          <div>
-            <h2 className="m-0 text-[1.8rem]">{title}</h2>
-            <p>{description}</p>
-          </div>
-        </div>
+        {/* Spacer */}
+        <div className="flex-grow flex-shrink h-auto w-4"></div>
       </div>
 
       {/* Bottom section: Gray area */}
       <div className="bg-[#373D4D] pl-5 pr-5 pb-4 pt-2 text-white flex flex-col">
-        <div className="mb-10 text-[1rem]" dangerouslySetInnerHTML={{ __html: responsibilities }}></div>
-        <div className="flex justify-between text-[0.7rem]">
+        <div className="description" dangerouslySetInnerHTML={{ __html: responsibilities }}></div>
+        <div className="tiny flex justify-between">
           <span>{startDate} - {endDate}</span>
           <span>{numPeople}</span>
         </div>
