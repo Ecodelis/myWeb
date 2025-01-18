@@ -1,0 +1,74 @@
+---
+// Library Imports
+import { boolean, string } from 'astro:schema';
+import { Icon } from "astro-icon/components"
+
+
+// This is a custom component for links!
+// Right now, style, isFilled, border Visible does nothing.
+interface Props {
+    text?: string;
+    href: string;
+    style?: "primary" | "secondary";
+    icon?: {
+        name: string;
+        side: "left" | "middle" | "right";  // optional object (icon?) with name and side properties 
+                                            // of either left, middle, right. Middle does not work with text!
+    };
+    isFilled?: boolean
+    borderVisible?: boolean;
+    classes?: string;
+}
+
+
+const {
+    text,
+    href,
+    style,
+    icon,
+    isFilled = true,            // is true by default
+    borderVisible = false,     // is false by default
+    classes,
+    ...rest
+
+} = Astro.props as Props
+
+---
+
+<!-- 
+class:list syntax in Astro is used to dynamically 
+apply list of CSS classes to an element. 
+
+
+
+{...rest} is used to pass any additional props to the element (dynamic)
+ -->
+<a href={href}
+    class:list={[
+        "link",
+        classes,
+        style,
+        { filled: isFilled, bordered: borderVisible }
+    ]} {...rest}
+>
+
+{
+    icon && icon.side === "left" && (
+        <Icon name={icon.name} class="size-24" />
+    )
+}
+
+{
+    icon && icon.side === "middle" && (
+        <Icon name={icon.name} class="size-24" />
+    )
+}
+
+<span>{text}</span>
+
+{
+    icon && icon.side === "right" && (
+        <Icon name={icon.name} class="size-24" />
+    )
+}
+<a/>

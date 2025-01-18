@@ -4,16 +4,20 @@ import { Icon } from "astro-icon/components"
 
 // data imports
 import navData from "../data/navData.js"
+
+
+
+// NOTE FOR TOMORROW: STANDARDIZE THE THEMES!
 ---
 
-<nav aria-label="Primary">
-    <div class="navbar">
+<header aria-label="Primary" class = "w-full bg-black overflow-hidden">
+    <nav class="navbar text-white header-wrapper w-full font-inter flex justify-between items-center px-10 py-7 max-w-7xl mx-auto">
         <a href="/" class="logomark" aria-label="Go home">
-            <Icon name="logomark" class="size-60 text-emerald-700" />
+            <p class="uppercase text-3xl font-bold">MARCUS FU</p>
         </a>
 
         <!-- Navigational Elements -->
-        <ul class="flex">
+        <ul class="flex gap-x-8">
             <!-- 
             JS: .map function is similar to python: for item in items.
             This iterates through the navData array and the objects that
@@ -26,13 +30,38 @@ import navData from "../data/navData.js"
             -->
             {
             navData.map((item) => 
-            <a href={item.path} class="nav-item" aria-label={item.name}>
+            <a href={item.path} class="nav-item custom-underline" aria-label={item.name}>
                     {
-                    item.icon ? <Icon name={item.icon} class="icon" /> : <span>{item.name}</span>
+                    item.icon ? <Icon name={item.icon} class="icon" /> : <span class="uppercase text-lg">{item.name}</span>
                     }
             </a>
             )
             }
         </ul>
-    </div>
-</nav>
+    </nav>
+</header>
+
+
+
+<style>
+    .custom-underline {
+        position: relative;
+        display: inline-block;
+    }
+    
+    .custom-underline::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -2px; /* Adjust this value to offset the underline */
+        width: 100%;
+        height: 2px; /* Adjust this value to change the thickness */
+        background-color: currentColor; /* Use the current text color */
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+    
+    .custom-underline:hover::after {
+        transform: scaleX(1);
+    }
+    </style>
