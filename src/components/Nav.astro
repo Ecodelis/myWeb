@@ -1,5 +1,9 @@
 ---
+// library imports
 import { Icon } from "astro-icon/components"
+
+// data imports
+import navData from "../data/navData.js"
 ---
 
 <nav aria-label="Primary">
@@ -7,8 +11,28 @@ import { Icon } from "astro-icon/components"
         <a href="/" class="logomark" aria-label="Go home">
             <Icon name="logomark" class="size-60 text-emerald-700" />
         </a>
-        <ul>
 
+        <!-- Navigational Elements -->
+        <ul class="flex">
+            <!-- 
+            JS: .map function is similar to python: for item in items.
+            This iterates through the navData array and the objects that
+            the array is storing will be sorted through.
+
+            Names and icons are mutually exclusive.
+            If the item has an icon, an icon component will be created.
+            If the item has a name, a span tag will be created.
+            If the item has an ID or a link, it will be created as an anchor tag (href)       
+            -->
+            {
+            navData.map((item) => 
+            <a href={item.path} class="nav-item" aria-label={item.name}>
+                    {
+                    item.icon ? <Icon name={item.icon} class="icon" /> : <span>{item.name}</span>
+                    }
+            </a>
+            )
+            }
         </ul>
     </div>
 </nav>
