@@ -1,25 +1,25 @@
 ---
 // library import
 
-import { Icon } from "astro-icon/components"
+import { Icon } from "astro-icon/components";
 
 // data imports
-import navData from "../data/navData.js"
-
-
+import navData from "../data/navData.js";
 
 // NOTE FOR TOMORROW: STANDARDIZE THE THEMES!
 ---
 
-<header aria-label="Primary" class = "w-full bg-black overflow-hidden fixed">
-    <nav class="navbar text-white header-wrapper w-full font-inter flex justify-between items-center px-10 py-7 max-w-7xl mx-auto">
-        <a href="/" class="logomark" aria-label="Go home">
-            <p class="uppercase text-3xl font-bold">MARCUS FU</p>
-        </a>
+<header aria-label="Primary" class="fixed w-full overflow-hidden bg-black">
+  <nav
+    class="navbar header-wrapper font-inter mx-auto flex max-w-7xl items-center justify-between px-10 py-7 text-white"
+  >
+    <a href="/" class="logoname flex-shrink-0" aria-label="Name">
+      <h1 class="text-3xl font-bold uppercase">MARCUS FU</h1>
+    </a>
 
-        <!-- Navigational Elements -->
-        <ul class="flex gap-x-8">
-            <!-- 
+    <!-- Navigational Elements -->
+    <ul class="ml-8 flex gap-x-8">
+      <!-- 
             JS: .map function is similar to python: for item in items.
             This iterates through the navData array and the objects that
             the array is storing will be sorted through.
@@ -29,40 +29,45 @@ import navData from "../data/navData.js"
             If the item has a name, a span tag will be created.
             If the item has an ID or a link, it will be created as an anchor tag (href)       
             -->
-            {
-            navData.map((item) => 
-            <a href={item.path} class="nav-item custom-underline" aria-label={item.name}>
-                    {
-                    item.icon ? <Icon name={item.icon} class="icon" /> : <span class="uppercase text-lg">{item.name}</span>
-                    }
-            </a>
-            )
-            }
-        </ul>
-    </nav>
+      {
+        navData.map((item) => (
+          <a
+            href={item.path}
+            class="nav-item custom-underline"
+            aria-label={item.name}
+          >
+            {item.icon ? (
+              <Icon name={item.icon} class="icon" />
+            ) : (
+              <span class="text-lg uppercase">{item.name}</span>
+            )}
+          </a>
+        ))
+      }
+    </ul>
+  </nav>
 </header>
 
-
-
 <style>
-    .custom-underline {
-        position: relative;
-        display: inline-block;
-    }
-    
-    .custom-underline::after {
-        content: '';
-        position: absolute; /* Position the pseudo-element absolutely within the parent */
-        left: 0;
-        bottom: -2px; /* underline offset */
-        width: 100%; /* span 100% of parent text */
-        height: 2px; /* underline thickness */
-        background-color: currentColor; /* Use the current text color */
-        transform: scaleX(0); /* Scale width to 0% */
-        transform-origin: center; /* Scale from the bottom right corner */
-        transition: transform 0.3s ease; /* Transitions when CSS properties change */
-    }
-    
-    .custom-underline:hover::after {
-        transform: scaleX(1); /* Scale width to 100% */
-    }
+  .custom-underline {
+    position: relative;
+    display: inline-block;
+  }
+
+  .custom-underline::after {
+    content: "";
+    position: absolute; /* Position the pseudo-element absolutely within the parent */
+    left: 0;
+    bottom: -2px; /* underline offset */
+    width: 100%; /* span 100% of parent text */
+    height: 2px; /* underline thickness */
+    background-color: currentColor; /* Use the current text color */
+    transform: scaleX(0); /* Scale width to 0% */
+    transform-origin: center; /* Scale from the bottom right corner */
+    transition: transform 0.3s ease; /* Transitions when CSS properties change */
+  }
+
+  .custom-underline:hover::after {
+    transform: scaleX(1); /* Scale width to 100% */
+  }
+</style>

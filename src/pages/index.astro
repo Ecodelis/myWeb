@@ -1,18 +1,43 @@
 ---
-import Layout from "../layouts/Layout.astro";
-
-//Import Components
-import Footer from "../components/Footer.astro";
-import Link from "../components/Link.astro";
+// Component Import
+import MainLayout from "../layouts/MainLayout.astro";
+import Profile from "../components/main/Profile.astro";
 ---
 
-<Layout>
-  <Link
-    text="Home"
-    href="/"
-    style="secondary"
-    isFilled={false}
-    borderVisible={false}
-    classes="text-white bg-blue-500 hover:bg-blue-700"
-  />
-</Layout>
+<MainLayout title="Activities" description="My Recent Activities Page">
+  <main class="Main ml-8rem mr-8rem">
+    <section id="home" aria-label="Home" class="section min-h-screen scroll-mt-[92px]">
+      <h2>Home</h2>
+      <!-- Content for Home section -->
+
+      <Profile />
+
+
+    </section>
+
+    <section id="projects" aria-label="Projects" class="section min-h-screen scroll-mt-[92px]">
+      <h2>Projects</h2>
+      <!-- Content for Projects section -->
+    </section>
+
+    <section id="competitions" aria-label="Competitions" class="section min-h-screen scroll-mt-[92px]">
+      <h2>Competitions</h2>
+      <!-- Content for Competitions section -->
+    </section>
+
+    <section id="experiences" aria-label="Experience" class="section min-h-screen scroll-mt-[92px]">
+      <h2>Experiences</h2>
+      <!-- Content for Experiences section -->
+    </section>
+
+    <section id="about" aria-label="About" class="section min-h-screen scroll-mt-[92px]">
+      <h2>About</h2>
+      <!-- Content for About section -->
+    </section>
+
+    <section id="resume" aria-label="Resume" class="section min-h-screen scroll-mt-[92px]">
+      <h2>Resume</h2>
+      <!-- Content for Resume section -->
+    </section>
+  </main>
+</MainLayout>
