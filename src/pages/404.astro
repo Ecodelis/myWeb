@@ -1,22 +1,24 @@
 ---
+// filepath: /m:/Software Inventory/git repo/VSCode/myWeb/src/pages/404.astro
 // Component Import
 import Link from "../components/Link.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout title="Page not found">
-    <div class="container" style="grid align-center text-center">
-        <h1>Welp, this page doesn't exist</h1>
-        <p>HeyaKid</p>
-    </div>
-    <div>
-        <Link
-        href = "/",
-        text="Go back to home",
-        icon={{ 
-            name: "logomark", 
-            side: "left" }}
-        />
+    <div class="text-center h-[60vh] font-Inter pt-[20vh]">
+        <h1 class="font-bold font-Inter text-[2.5rem]">Uh oh, this page doesn't exist!</h1>
+        <p class="text-[2rem]">You got a little lost...</p>
+
+        <div class="button mt-8">
+            <Link
+            href="/"
+            text="Go back to home" 
+            classes="text-white bg-black p-2 w-[200px]"
+            >
+        </div>
+
 
     </div>
+
 </MainLayout>

@@ -10,11 +10,9 @@ import navData from "../data/navData.js";
 ---
 
 <header aria-label="Primary" class="fixed z-50 w-full overflow-hidden bg-black">
-  <nav
-    class="navbar header-wrapper font-inter mx-auto flex max-w-7xl items-center justify-between px-10 py-7 text-white"
-  >
+  <nav class="navbar header-wrapper mx-auto flex max-w-7xl items-center justify-between px-10 py-7 text-white">
     <a href="/" class="logoname flex-shrink-0" aria-label="Name">
-      <h1 class="text-3xl font-bold uppercase">MARCUS FU</h1>
+      <h1 class="text-3xl font-semibold uppercase">MARCUS FU</h1>
     </a>
 
     <!-- Navigational Elements -->
@@ -33,7 +31,7 @@ import navData from "../data/navData.js";
         navData.map((item) => (
           <a
             href={item.path}
-            class="nav-item custom-underline"
+            class="nav-item custom-underline font-mono"
             aria-label={item.name}
           >
             {item.icon ? (
