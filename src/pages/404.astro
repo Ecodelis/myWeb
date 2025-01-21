@@ -1,0 +1,22 @@
+---
+// Component Import
+import Link from "../components/Link.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout title="Page not found">
+    <div class="container" style="grid align-center text-center">
+        <h1>Welp, this page doesn't exist</h1>
+        <p>HeyaKid</p>
+    </div>
+    <div>
+        <Link
+        href = "/",
+        text="Go back to home",
+        icon={{ 
+            name: "logomark", 
+            side: "left" }}
+        />
+
+    </div>
+</MainLayout>

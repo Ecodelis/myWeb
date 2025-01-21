@@ -3,7 +3,7 @@ import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 ---
 
-<html lang="en">
+<html lang="en" class="bg-black">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -15,10 +15,10 @@ import Footer from "../components/Footer.astro";
   <body>
     <Nav />
 
-    <main class="scroll-m-[4rem] pt-[92px]">
-      <slot />
+    <div class="Header_Padding pt-[92px]"></div>
+    <main class="scroll-m-[4rem] bg-white">
+    <slot />
     </main>
-
     <Footer />
   </body>
 </html>
