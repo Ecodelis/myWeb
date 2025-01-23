@@ -26,7 +26,9 @@ const navData = [
   },
   {
     name: "Resume",
-    path: "/resume/",
+    //path: "/resume/",
+    path: "/projects/",
+
   },
 ];
 

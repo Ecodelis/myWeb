@@ -4,6 +4,5 @@
 Refactored copy of my website to improve code readability and improve workflow
 ```
 
-
 Used:
 npm install @fontsource/inter

@@ -1,0 +1,30 @@
+---
+// 22 day jan
+import MainLayout from "../layouts/MainLayout.astro";
+
+const { frontmatter } = Astro.props;
+
+const { title, description, date, category, author, image } = frontmatter;
+---
+
+<MainLayout title={title} description={description}>
+    <header class="pt-[5rem] pl-[3rem] pr-[3rem] pb-[1rem]">
+        <div class="container m-auto text-left">
+            <small>
+                <a href={'/category/${category}'} class="badge"></a>
+            </small>
+
+            <h1 class="font-Inter text-[2.5rem] font-bold">{title}</h1>
+            <p class="font-Inter text-[1.2rem] font-semibold">by <a href={'/author/${author}'}>{author}</a>
+            ◘ {date}</p>
+        </div>
+        <img src="" alt="">
+    </header>
+
+    <div class="post-content pt-[1rem] pl-[3rem] pr-[3rem] pb-[5rem]">
+        <div class="content">
+            <slot />
+        </div>
+        <div class="sidebar"></div>
+    </div>
+</MainLayout>

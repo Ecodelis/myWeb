@@ -1,10 +1,10 @@
 ---
-// filepath: /m:/Software Inventory/git repo/VSCode/myWeb/src/components/main/Profile.astro
+
 
 // FIX THE SCALING WINDOW SHRINK PROBLEM
 ---
 
-<profile class="profile-container relative flex flex-row w-[500px] text-white">
+<!-- <profile class="profile-container relative flex flex-row w-[500px] text-white">
     <img 
       src="/images/headshot.jpg"
       alt="My headshot"
@@ -18,5 +18,27 @@
         <p class="description text-left">
             Lorem
         </p>
+    </div>
+</profile> -->
+
+
+
+
+
+<profile class="profile-container flex flex-row items-center text-left py-12 px-10 max-w-7xl mx-auto box-border">
+    <div class="flex-shrink-0 w-auto flex justify-center">
+        <img 
+        src="/images/headshot.jpg"
+        alt="My headshot"
+        width="32rem"
+        height="32rem"
+        class="w-32 h-32 md:w-48 md:h-48 bg-black">
+      </img>
+    </div>
+    <div class="flex-grow flex flex-col justify-center items-center pl-20 h-48">
+        <div class="w-full pl-8 p-4 h-full flex flex-col justify-center items-center bg-[#373D4D]">
+            <h1 class="heading mb-2 text-center font-semibold ">title</h1>
+            <p class="description text-center">desc</p>
+        </div>
     </div>
 </profile>
